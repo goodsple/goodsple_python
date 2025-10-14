@@ -1,0 +1,41 @@
+version: "3.1"
+rules:
+  - rule: Respond to 지도_사용법
+    steps:
+      - intent: 지도_사용법
+      - action: utter_지도_사용법
+
+  - rule: Respond to 지도_위치오류
+    steps:
+      - intent: 지도_위치오류
+      - action: utter_지도_위치오류
+
+  - rule: Respond to 지도_지역검색
+    steps:
+      - intent: 지도_지역검색
+      - action: utter_지도_지역검색
+
+  - rule: Respond to 지도_클러스터의의미
+    steps:
+      - intent: 지도_클러스터의의미
+      - action: utter_지도_클러스터의의미
+
+  - rule: Respond to 지도_결과없음
+    steps:
+      - intent: 지도_결과없음
+      - action: utter_지도_결과없음
+
+  - rule: Respond to 지도_특정상품검색
+    steps:
+      - intent: 지도_특정상품검색
+      - action: utter_지도_특정상품검색
+
+  - rule: Respond to 지도_상세보기방법
+    steps:
+      - intent: 지도_상세보기방법
+      - action: utter_지도_상세보기방법
+
+  - rule: Respond to 지도_목록클릭
+    steps:
+      - intent: 지도_목록클릭
+      - action: utter_지도_목록클릭
