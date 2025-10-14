@@ -1,6 +1,6 @@
 # app/api/chat.py
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List # List 타입을 import 합니다.
 
@@ -60,3 +60,56 @@ async def get_knowledge_list(
 
     # 2. 조회된 결과를 클라이언트에게 반환합니다.
     return knowledge_list
+
+# ▼▼▼▼▼ 이 두 개의 API를 새로 추가해주세요 ▼▼▼▼▼
+
+# --- '지식 수정' API 엔드포인트 ---
+@router.put(
+    "/knowledge/{knowledge_id}",
+    response_model=chat_schema.KnowledgeBaseResponse,
+    summary="특정 지식 베이스 항목 수정"
+)
+async def update_knowledge(
+        *,
+        db: AsyncSession = Depends(get_db),
+        knowledge_id: int, # URL 경로에서 ID를 받아옵니다.
+        knowledge_in: chat_schema.KnowledgeBaseUpdate
+):
+    """
+    ID로 특정 지식 항목을 찾아 내용을 수정합니다.
+    """
+    # 1. DB에서 해당 ID의 데이터를 찾습니다.
+    existing_knowledge = await crud_knowledge.get(db=db, knowledge_id=knowledge_id)
+
+    # 2. 데이터가 없으면 404 오류를 발생시킵니다.
+    if not existing_knowledge:
+        raise HTTPException(status_code=404, detail="해당 지식을 찾을 수 없습니다.")
+
+    # 3. crud 함수를 호출하여 데이터를 수정합니다.
+    updated_knowledge = await crud_knowledge.update(db=db, db_obj=existing_knowledge, obj_in=knowledge_in)
+    return updated_knowledge
+
+# --- '지식 삭제' API 엔드포인트 ---
+@router.delete(
+    "/knowledge/{knowledge_id}",
+    response_model=chat_schema.KnowledgeBaseResponse,
+    summary="특정 지식 베이스 항목 삭제"
+)
+async def delete_knowledge(
+        *,
+        db: AsyncSession = Depends(get_db),
+        knowledge_id: int # URL 경로에서 ID를 받아옵니다.
+):
+    """
+    ID로 특정 지식 항목을 찾아 삭제합니다.
+    """
+    # 1. DB에서 해당 ID의 데이터를 찾습니다. (수정 API와 동일)
+    existing_knowledge = await crud_knowledge.get(db=db, knowledge_id=knowledge_id)
+
+    # 2. 데이터가 없으면 404 오류를 발생시킵니다.
+    if not existing_knowledge:
+        raise HTTPException(status_code=404, detail="해당 지식을 찾을 수 없습니다.")
+
+    # 3. crud 함수를 호출하여 데이터를 삭제합니다.
+    deleted_knowledge = await crud_knowledge.remove(db=db, knowledge_id=knowledge_id)
+    return deleted_knowledge

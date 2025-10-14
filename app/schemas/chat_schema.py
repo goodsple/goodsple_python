@@ -1,6 +1,7 @@
 # app/schemas/chat_schema.py
 
-from pydantic import BaseModel
+
+from pydantic import BaseModel, Field # Field를 import 합니다.
 from typing import Optional
 from datetime import datetime
 
@@ -11,6 +12,14 @@ class KnowledgeBaseCreate(BaseModel):
     knowledge_intent: str
     knowledge_question: str
     knowledge_answer: str
+
+# ▼▼▼▼▼ 이 클래스를 새로 추가해주세요 ▼▼▼▼▼
+class KnowledgeBaseUpdate(BaseModel):
+    knowledge_intent: Optional[str] = None
+    knowledge_question: Optional[str] = None
+    knowledge_answer: Optional[str] = None
+    knowledge_is_faq: Optional[bool] = None
+    knowledge_is_active: Optional[bool] = None
 
 # API가 클라이언트에게 '지식 정보'를 응답으로 보낼 때의 데이터 모양 (Response Body)
 class KnowledgeBaseResponse(BaseModel):

@@ -1,40 +1,58 @@
 # app/crud/crud_knowledge.py
 
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.knowledge import KnowledgeBase
-from sqlalchemy.future import select  # select 함수를 import 합니다.
-from typing import List            # List 타입을 import 합니다.
-from app.schemas.chat_schema import KnowledgeBaseCreate # 아직 만들지 않았지만 곧 만들 파일입니다.
+from sqlalchemy.future import select
+from typing import List, Optional, Dict, Any
 
+from app.models.knowledge import KnowledgeBase
+from app.schemas.chat_schema import KnowledgeBaseCreate, KnowledgeBaseUpdate
+
+# --- Read (Single Item) ---
+async def get(db: AsyncSession, knowledge_id: int) -> Optional[KnowledgeBase]:
+    """ID로 특정 지식 항목 하나를 조회합니다."""
+    result = await db.execute(select(KnowledgeBase).filter(KnowledgeBase.knowledge_id == knowledge_id))
+    return result.scalars().first()
+
+# --- Read (Multiple Items) ---
+async def get_multi(db: AsyncSession) -> List[KnowledgeBase]:
+    """모든 지식 항목을 조회합니다."""
+    query = select(KnowledgeBase).order_by(KnowledgeBase.knowledge_id.desc())
+    result = await db.execute(query)
+    return result.scalars().all()
+
+# --- Create ---
 async def create_knowledge(db: AsyncSession, *, knowledge_in: KnowledgeBaseCreate) -> KnowledgeBase:
-    """
-    DB에 새로운 지식 항목을 추가합니다.
-    """
-    # 1. Pydantic 모델로 받은 데이터를 SQLAlchemy 모델 객체로 변환합니다.
+    """새로운 지식 항목을 추가합니다."""
     db_obj = KnowledgeBase(
         knowledge_intent=knowledge_in.knowledge_intent,
         knowledge_question=knowledge_in.knowledge_question,
         knowledge_answer=knowledge_in.knowledge_answer
     )
-    # 2. 세션에 객체를 추가합니다. (아직 DB에 저장된 것은 아님)
     db.add(db_obj)
-    # 3. 변경사항을 DB에 커밋(저장)합니다.
     await db.commit()
-    # 4. DB에 저장된 객체를 다시 읽어와서 반환합니다. (ID 등 자동 생성된 값을 포함)
     await db.refresh(db_obj)
     return db_obj
 
-# ▼▼▼▼▼ 이 함수를 새로 추가해주세요 ▼▼▼▼▼
-async def get_multi(db: AsyncSession) -> List[KnowledgeBase]:
-    """
-    DB에서 모든 지식 항목을 조회합니다.
-    """
-    # 1. 'knowledge_base' 테이블의 모든 데이터를 조회하는 쿼리를 작성합니다.
-    #    최신 항목이 위로 오도록 ID 기준 내림차순으로 정렬합니다.
-    query = select(KnowledgeBase).order_by(KnowledgeBase.knowledge_id.desc())
+# --- Update ---
+async def update(db: AsyncSession, *, db_obj: KnowledgeBase, obj_in: KnowledgeBaseUpdate) -> KnowledgeBase:
+    """기존 지식 항목을 수정합니다."""
+    # Pydantic 모델을 dict로 변환
+    update_data = obj_in.dict(exclude_unset=True)
+    # dict의 각 항목을 SQLAlchemy 모델 객체의 속성으로 설정
+    for field, value in update_data.items():
+        setattr(db_obj, field, value)
 
-    # 2. 쿼리를 실행하여 결과(result)를 받아옵니다.
-    result = await db.execute(query)
+    db.add(db_obj)
+    await db.commit()
+    await db.refresh(db_obj)
+    return db_obj
 
-    # 3. 결과에서 실제 데이터(SQLAlchemy 모델 객체)만 추출하여 리스트로 반환합니다.
-    return result.scalars().all()
+# --- Delete ---
+async def remove(db: AsyncSession, *, knowledge_id: int) -> Optional[KnowledgeBase]:
+    """ID로 특정 지식 항목을 삭제합니다."""
+    result = await db.execute(select(KnowledgeBase).filter(KnowledgeBase.knowledge_id == knowledge_id))
+    db_obj = result.scalars().first()
+    if db_obj:
+        await db.delete(db_obj)
+        await db.commit()
+    return db_obj
