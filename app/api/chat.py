@@ -2,6 +2,7 @@
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
+from typing import List # List 타입을 import 합니다.
 
 # 우리가 직접 만든 모듈들을 import 합니다.
 from app.db.session import get_db
@@ -38,3 +39,24 @@ async def create_new_knowledge(
     return new_knowledge
 
 # (참고: 나중에 여기에 GET, PUT, DELETE 등 다른 API들을 추가하게 됩니다.)
+
+# ▼▼▼▼▼ 이 API를 새로 추가해주세요 ▼▼▼▼▼
+@router.get(
+    "/knowledge",
+    # 응답 모델은 'KnowledgeBaseResponse' 스키마의 '리스트' 형태가 될 것입니다.
+    response_model=List[chat_schema.KnowledgeBaseResponse],
+    summary="전체 지식 베이스 목록 조회",
+    description="DB에 저장된 모든 지식 베이스 항목을 리스트 형태로 가져옵니다."
+)
+async def get_knowledge_list(
+        *,
+        db: AsyncSession = Depends(get_db)
+):
+    """
+    전체 지식 베이스 목록을 조회합니다.
+    """
+    # 1. crud 함수를 호출하여 DB에서 모든 데이터를 가져옵니다.
+    knowledge_list = await crud_knowledge.get_multi(db=db)
+
+    # 2. 조회된 결과를 클라이언트에게 반환합니다.
+    return knowledge_list
