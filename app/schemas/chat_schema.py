@@ -34,4 +34,4 @@ class KnowledgeBaseResponse(BaseModel):
 
     # 이 설정을 통해 SQLAlchemy 모델 객체를 Pydantic 모델로 자동 변환할 수 있습니다.
     class Config:
-        from_attributes = True
+        orm_mode = True
