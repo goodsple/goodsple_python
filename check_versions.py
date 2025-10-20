@@ -3,7 +3,7 @@ import importlib
 
 # 확인할 패키지 목록
 pkgs = ['sqlalchemy', 'rasa', 'fastapi', 'pydantic', 'asyncpg',
-        'pydantic_settings']
+        'pydantic_settings','uvicorn']
 
 # 파이썬 버전 출력
 print(f"Python: {sys.version.split()[0]}")
