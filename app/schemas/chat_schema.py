@@ -35,3 +35,14 @@ class KnowledgeBaseResponse(BaseModel):
     # 이 설정을 통해 SQLAlchemy 모델 객체를 Pydantic 모델로 자동 변환할 수 있습니다.
     class Config:
         orm_mode = True
+
+
+# --- 사용자 챗봇 대화용 스키마 ---
+class ChatbotAnswerRequest(BaseModel):
+    text: str  # 사용자가 입력한 메시지
+
+
+class ChatbotAnswerResponse(BaseModel):
+    answer: str       # 챗봇의 답변 텍스트
+    intent: str       # 의도(예: "지도_사용법")
+    confidence: float # 신뢰도 (0.0 ~ 1.0)
