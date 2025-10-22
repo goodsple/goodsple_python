@@ -113,3 +113,38 @@ async def delete_knowledge(
     # 3. crud 함수를 호출하여 데이터를 삭제합니다.
     deleted_knowledge = await crud_knowledge.remove(db=db, knowledge_id=knowledge_id)
     return deleted_knowledge
+
+# --- 사용자 챗봇 대화 응답 API ---
+@router.post(
+    "/answer",
+    response_model=chat_schema.ChatbotAnswerResponse,
+    summary="사용자 질문에 대한 챗봇 답변 반환",
+    description="프론트(또는 Spring)에서 사용자의 메시지를 전달하면, 적절한 의도(intent)와 답변을 반환합니다."
+)
+async def get_chatbot_answer(
+        *,
+        db: AsyncSession = Depends(get_db),
+        user_input: chat_schema.ChatbotAnswerRequest
+):
+    """
+    사용자의 질문을 분석하여 답변을 반환합니다.
+    """
+    try:
+        # 1️⃣ Rasa 또는 규칙 기반 로직 호출 (현재는 임시 예시)
+        # 실제 구현에서는 Rasa NLU 모델 또는 DB 기반 검색을 호출할 수 있음
+        intent = "지도_사용법"
+        confidence = 0.93
+        answer_text = "지도를 움직여 원하는 지역으로 이동하면, 해당 지역에 등록된 굿즈들이 자동으로 표시됩니다."
+
+        # 2️⃣ DB 로그 저장 (선택)
+        # await crud_chatlog.create_log(db, user_input.text, intent, confidence, answer_text)
+
+        # 3️⃣ 응답 반환
+        return chat_schema.ChatbotAnswerResponse(
+            answer=answer_text,
+            intent=intent,
+            confidence=confidence
+        )
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
