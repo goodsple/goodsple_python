@@ -39,3 +39,293 @@ rules:
     steps:
       - intent: 지도_목록클릭
       - action: utter_지도_목록클릭
+
+  - rule: reply 등급_상승_조건
+    steps:
+      - intent: 등급_상승_조건
+      - action: utter_등급_상승_조건
+
+  - rule: reply 후기_점수_반영
+    steps:
+      - intent: 후기_점수_반영
+      - action: utter_후기_점수_반영
+
+  - rule: reply 별점_반영_기준
+    steps:
+      - intent: 별점_반영_기준
+      - action: utter_별점_반영_기준
+
+  - rule: reply 등급_점수_반영_시점
+    steps:
+      - intent: 등급_점수_반영_시점
+      - action: utter_등급_점수_반영_시점
+
+  - rule: reply 점수_회수_기준
+    steps:
+      - intent: 점수_회수_기준
+      - action: utter_점수_회수_기준
+
+  - rule: reply 등급_하락_가능성
+    steps:
+      - intent: 등급_하락_가능성
+      - action: utter_등급_하락_가능성
+
+  - rule: reply 점수_계산_방식
+    steps:
+      - intent: 점수_계산_방식
+      - action: utter_점수_계산_방식
+
+  - rule: reply 거래글_작성_방법
+    steps:
+      - intent: 거래글_작성_방법
+      - action: utter_거래글_작성_방법
+
+  - rule: reply 거래글_수정_방법
+    steps:
+      - intent: 거래글_수정_방법
+      - action: utter_거래글_수정_방법
+
+  - rule: reply 거래상태_변경_방법
+    steps:
+      - intent: 거래상태_변경_방법
+      - action: utter_거래상태_변경_방법
+
+  - rule: reply 거래상태_변경_문의
+    steps:
+      - intent: 거래상태_변경_문의
+      - action: utter_거래상태_변경_문의
+
+  - rule: reply 거래내역_조회_방법
+    steps:
+      - intent: 거래내역_조회_방법
+      - action: utter_거래내역_조회_방법
+
+  - rule: reply 거래글_이미지_문의
+    steps:
+      - intent: 거래글_이미지_문의
+      - action: utter_거래글_이미지_문의
+
+  - rule: reply 거래글_택배비_문의
+    steps:
+      - intent: 거래글_택배비_문의
+      - action: utter_거래글_택배비_문의
+
+  - rule: reply 카테고리_숨김_글안보임_문의
+    steps:
+      - intent: 카테고리_숨김_글안보임_문의
+      - action: utter_카테고리_숨김_글안보임_문의
+
+  - rule: reply 카테고리_숨김_글수정_문의
+    steps:
+      - intent: 카테고리_숨김_글수정_문의
+      - action: utter_카테고리_숨김_글수정_문의
+
+  - rule: reply 카테고리_숨김_글신고_문의
+    steps:
+      - intent: 카테고리_숨김_글신고_문의
+      - action: utter_카테고리_숨김_글신고_문의
+
+  - rule: reply 거래글_삭제_방법
+    steps:
+      - intent: 거래글_삭제_방법
+      - action: utter_거래글_삭제_방법
+
+  - rule: reply 거래상태_취소_문의
+    steps:
+      - intent: 거래상태_취소_문의
+      - action: utter_거래상태_취소_문의
+
+  - rule: reply 거래상태_변경_문의
+    steps:
+      - intent: 거래상태_변경_문의
+      - action: utter_거래상태_변경_문의
+
+  - rule: reply 찜_목록_조회
+    steps:
+      - intent: 찜_목록_조회
+      - action: utter_찜_목록_조회
+
+  - rule: reply 채팅방_생성_방법
+    steps:
+      - intent: 채팅방_생성_방법
+      - action: utter_채팅방_생성_방법
+
+  - rule: reply 채팅방_삭제_방법
+    steps:
+      - intent: 채팅방_삭제_방법
+      - action: utter_채팅방_삭제_방법
+
+  - rule: reply 채팅방_삭제_문의
+    steps:
+      - intent: 채팅방_삭제_문의
+      - action: utter_채팅방_삭제_문의
+
+  - rule: reply 채팅방_사진전송_문의
+    steps:
+      - intent: 채팅방_사진전송_문의
+      - action: utter_채팅방_사진전송_문의
+
+  - rule: reply 채팅방_읽음확인_문의
+    steps:
+      - intent: 채팅방_읽음확인_문의
+      - action: utter_채팅방_읽음확인_문의
+
+  - rule: reply 채팅방_차단_문의
+    steps:
+      - intent: 채팅방_차단_문의
+      - action: utter_채팅방_차단_문의
+
+  - rule: reply 채팅목록_조회_방법
+    steps:
+      - intent: 채팅목록_조회_방법
+      - action: utter_채팅목록_조회_방법
+
+  - rule: reply 인기검색어_기준_문의
+    steps:
+      - intent: 인기검색어_기준_문의
+      - action: utter_인기검색어_기준_문의
+
+  - rule: reply 카테고리_생성요청_문의
+    steps:
+      - intent: 카테고리_생성요청_문의
+      - action: utter_카테고리_생성요청_문의
+
+  - rule: reply 카테고리_복구_문의
+    steps:
+      - intent: 카테고리_복구_문의
+      - action: utter_카테고리_복구_문의
+
+  - rule: reply 커뮤니티_생성_문의
+    steps:
+      - intent: 커뮤니티_생성_문의
+      - action: utter_커뮤니티_생성_문의
+
+  - rule: reply 커뮤니티_사진전송_문의
+    steps:
+      - intent: 커뮤니티_사진전송_문의
+      - action: utter_커뮤니티_사진전송_문의
+
+  - rule: reply 커뮤니티_읽음확인_문의
+    steps:
+      - intent: 커뮤니티_읽음확인_문의
+      - action: utter_커뮤니티_읽음확인_문의
+
+  - rule: reply 확성기_사용_문의
+    steps:
+      - intent: 확성기_사용_문의
+      - action: utter_확성기_사용_문의
+
+  - rule: reply 로그인_오류
+    steps:
+      - intent: 로그인_오류
+      - action: utter_로그인_오류
+
+  - rule: reply 로그인_비밀번호_오류
+    steps:
+      - intent: 로그인_비밀번호_오류
+      - action: utter_로그인_비밀번호_오류
+
+  - rule: reply 로그인_카카오_문의
+    steps:
+      - intent: 로그인_카카오_문의
+      - action: utter_로그인_카카오_문의
+
+  - rule: reply 카카오_추가정보_문의
+    steps:
+      - intent: 카카오_추가정보_문의
+      - action: utter_카카오_추가정보_문의
+
+  - rule: reply 카카오_이메일_변경
+    steps:
+      - intent: 카카오_이메일_변경
+      - action: utter_카카오_이메일_변경
+
+  - rule: reply 회원가입_이메일중복_문의
+    steps:
+      - intent: 회원가입_이메일중복_문의
+      - action: utter_회원가입_이메일중복_문의
+
+  - rule: reply 회원가입_방법
+    steps:
+      - intent: 회원가입_방법
+      - action: utter_회원가입_방법
+
+  - rule: reply 회원가입_비밀번호_조건
+    steps:
+      - intent: 회원가입_비밀번호_조건
+      - action: utter_회원가입_비밀번호_조건
+
+  - rule: reply 이메일인증_미수신
+    steps:
+      - intent: 이메일인증_미수신
+      - action: utter_이메일인증_미수신
+
+  - rule: reply 이메일인증_만료
+    steps:
+      - intent: 이메일인증_만료
+      - action: utter_이메일인증_만료
+
+  - rule: reply 이메일인증_오류
+    steps:
+      - intent: 이메일인증_오류
+      - action: utter_이메일인증_오류
+
+  - rule: reply 아이디찾기_문의
+    steps:
+      - intent: 아이디찾기_문의
+      - action: utter_아이디찾기_문의
+
+  - rule: reply 비밀번호찾기_문의
+    steps:
+      - intent: 비밀번호찾기_문의
+      - action: utter_비밀번호찾기_문의
+
+  - rule: reply 후기_작성
+    steps:
+      - intent: 후기_작성
+      - action: utter_후기_작성
+
+  - rule: reply 후기_수정삭제
+    steps:
+      - intent: 후기_수정삭제
+      - action: utter_후기_수정삭제
+
+  - rule: reply 신고_방법
+    steps:
+      - intent: 신고_방법
+      - action: utter_신고_방법
+
+  - rule: reply 신고_처리기간
+    steps:
+      - intent: 신고_처리기간
+      - action: utter_신고_처리기간
+
+  - rule: reply 신고_결과확인
+    steps:
+      - intent: 신고_결과확인
+      - action: utter_신고_결과확인
+
+  - rule: reply 채팅_오류
+    steps:
+      - intent: 채팅_오류
+      - action: utter_채팅_오류
+
+  - rule: reply 회원정보수정_프로필
+    steps:
+      - intent: 회원정보수정_프로필
+      - action: utter_회원정보수정_프로필
+
+  - rule: reply 회원정보수정_닉네임
+    steps:
+      - intent: 회원정보수정_닉네임
+      - action: utter_회원정보수정_닉네임
+
+  - rule: reply 회원정보수정_비밀번호
+    steps:
+      - intent: 회원정보수정_비밀번호
+      - action: utter_회원정보수정_비밀번호
+
+  - rule: reply 회원정보수정_탈퇴
+    steps:
+      - intent: 회원정보수정_탈퇴
+      - action: utter_회원정보수정_탈퇴
