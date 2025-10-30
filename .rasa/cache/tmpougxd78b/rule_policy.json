@@ -1,0 +1,46 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}}]": "utter_지도_클러스터의의미",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}}]": "utter_지도_결과없음",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}}]": "utter_지도_상세보기방법",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}}]": "utter_지도_목록클릭",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}}]": "utter_지도_지역검색",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}}]": "utter_지도_특정상품검색",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}}]": "utter_지도_사용법",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}}]": "utter_지도_위치오류",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc9c0\\uc5ed\\uac80\\uc0c9\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uacb0\\uacfc\\uc5c6\\uc74c\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}}]",
+      "predicting default action with intent back",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0c1\\uc138\\ubcf4\\uae30\\ubc29\\ubc95\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc0ac\\uc6a9\\ubc95\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\uc704\\uce58\\uc624\\ub958\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud074\\ub7ec\\uc2a4\\ud130\\uc758\\uc758\\ubbf8\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ubaa9\\ub85d\\ud074\\ub9ad\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}}, {\"prev_action\": {\"action_name\": \"utter_\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}, \"user\": {\"intent\": \"\\uc9c0\\ub3c4_\\ud2b9\\uc815\\uc0c1\\ud488\\uac80\\uc0c9\"}}]"
+    ]
+  }
+}

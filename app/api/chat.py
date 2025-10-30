@@ -3,6 +3,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List # List 타입을 import 합니다.
+from app.services.rasa_service import parse_intent
 
 # 우리가 직접 만든 모듈들을 import 합니다.
 from app.db.session import get_db
@@ -115,36 +116,47 @@ async def delete_knowledge(
     return deleted_knowledge
 
 # --- 사용자 챗봇 대화 응답 API ---
-@router.post(
-    "/answer",
-    response_model=chat_schema.ChatbotAnswerResponse,
-    summary="사용자 질문에 대한 챗봇 답변 반환",
-    description="프론트(또는 Spring)에서 사용자의 메시지를 전달하면, 적절한 의도(intent)와 답변을 반환합니다."
-)
-async def get_chatbot_answer(
-        *,
-        db: AsyncSession = Depends(get_db),
-        user_input: chat_schema.ChatbotAnswerRequest
-):
-    """
-    사용자의 질문을 분석하여 답변을 반환합니다.
-    """
-    try:
-        # 1️⃣ Rasa 또는 규칙 기반 로직 호출 (현재는 임시 예시)
-        # 실제 구현에서는 Rasa NLU 모델 또는 DB 기반 검색을 호출할 수 있음
-        intent = "지도_사용법"
-        confidence = 0.93
-        answer_text = "지도를 움직여 원하는 지역으로 이동하면, 해당 지역에 등록된 굿즈들이 자동으로 표시됩니다."
+@router.post("/answer", response_model=chat_schema.ChatbotAnswerResponse)
+async def get_chatbot_answer(*, db: AsyncSession = Depends(get_db),
+                             user_input: chat_schema.ChatbotAnswerRequest):
 
-        # 2️⃣ DB 로그 저장 (선택)
-        # await crud_chatlog.create_log(db, user_input.text, intent, confidence, answer_text)
-
-        # 3️⃣ 응답 반환
+    text = (user_input.text or "").strip()
+    if not text:
         return chat_schema.ChatbotAnswerResponse(
-            answer=answer_text,
-            intent=intent,
-            confidence=confidence
+            answer="질문 문장이 비었습니다. 내용을 입력해 주세요.",
+            intent="input_empty",
+            confidence=0.0
         )
 
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    nlu = await parse_intent(text)  # NluResult
+    intent = nlu.intent
+    confidence = nlu.confidence
+
+    # 신뢰도 임계치
+    THRESHOLD = 0.45
+    if (not nlu.ok) or (confidence < THRESHOLD):
+        return chat_schema.ChatbotAnswerResponse(
+            answer="질문을 이해하지 못했습니다. 다른 표현으로 질문해 주세요.",
+            intent="nlu_fallback",
+            confidence=float(confidence)
+        )
+
+    # 의도에 맞는 답변 DB에서 조회
+    kb_list = await crud_knowledge.get_multi(db=db)
+    answer = next(
+        (k.knowledge_answer for k in kb_list if k.knowledge_intent == intent and k.knowledge_is_active),
+        None
+    )
+
+    if not answer:
+        return chat_schema.ChatbotAnswerResponse(
+            answer="해당 의도에 등록된 답변이 없습니다. 관리자에게 문의하세요.",
+            intent=intent,
+            confidence=float(confidence)
+        )
+
+    return chat_schema.ChatbotAnswerResponse(
+        answer=answer,
+        intent=intent,
+        confidence=float(confidence)
+    )
