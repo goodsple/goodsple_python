@@ -1,8 +1,5 @@
-# data/nlu.yml 파일 내용
-
 version: "3.1"
 nlu:
-  # (기존에 작성한 의도가 있다면 그 아래에 추가)
 
   - intent: 지도_사용법
     examples: |

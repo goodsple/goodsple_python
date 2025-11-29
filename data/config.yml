@@ -1,10 +1,8 @@
-# config.yml
 
 recipe: default.v1
-language: ko  # 언어를 한국어로 설정
+language: ko
 
 pipeline:
-  # 한국어 자연어 처리를 위한 파이프라인 설정
 - name: WhitespaceTokenizer
 - name: RegexFeaturizer
 - name: LexicalSyntacticFeaturizer
@@ -25,7 +23,6 @@ pipeline:
   ambiguity_threshold: 0.1
 
 policies:
-  # 대화 정책 (지금은 기본값만 사용)
 - name: MemoizationPolicy
 - name: RulePolicy
 - name: UnexpecTEDIntentPolicy

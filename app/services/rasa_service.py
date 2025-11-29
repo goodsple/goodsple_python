@@ -1,4 +1,3 @@
-# app/services/rasa_service.py
 import os
 import httpx
 from dataclasses import dataclass
@@ -26,5 +25,4 @@ async def parse_intent(text: str) -> NluResult:
                          ok=bool(intent),
                          raw=data)
     except Exception:
-        # Rasa 미응답/비정상 응답 시 안전 반환
         return NluResult(intent="nlu_fallback", confidence=0.0, ok=False, raw={})
